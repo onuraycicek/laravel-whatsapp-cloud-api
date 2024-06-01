@@ -11,8 +11,8 @@ class WebHook
     /**
      * Verify a webhook anytime you configure a new one in your App Dashboard.
      *
-     * @param  array  $payload Query string parameters received in your endpoint URL.
-     * @return string          Challenge sent by Meta (Facebook)
+     * @param  array  $payload  Query string parameters received in your endpoint URL.
+     * @return string Challenge sent by Meta (Facebook)
      */
     public function verify(array $payload, string $verify_token): string
     {
@@ -23,8 +23,8 @@ class WebHook
     /**
      * Get a notification from incoming webhook messages.
      *
-     * @param  array  $payload Payload received in your endpoint URL.
-     * @return Notification    A PHP representation of WhatsApp webhook notifications
+     * @param  array  $payload  Payload received in your endpoint URL.
+     * @return Notification A PHP representation of WhatsApp webhook notifications
      */
     public function read(array $payload): ?Notification
     {
@@ -35,8 +35,8 @@ class WebHook
     /**
      * Get all notifications from incoming webhook messages.
      *
-     * @param  array  $payload Payload received in your endpoint URL.
-     * @return Notification[]    A PHP representation of WhatsApp webhook notifications
+     * @param  array  $payload  Payload received in your endpoint URL.
+     * @return Notification[] A PHP representation of WhatsApp webhook notifications
      */
     public function readAll(array $payload): array
     {

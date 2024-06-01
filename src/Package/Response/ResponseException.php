@@ -19,7 +19,7 @@ final class ResponseException extends \Exception
     /**
      * Creates a ResponseException.
      *
-     * @param Response      $response          The response that threw the exception.
+     * @param  Response  $response  The response that threw the exception.
      */
     public function __construct(Response $response)
     {

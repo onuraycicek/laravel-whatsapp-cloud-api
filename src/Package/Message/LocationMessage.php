@@ -7,8 +7,8 @@ use WCA\WCA\Package\Message\Error\InvalidMessage;
 final class LocationMessage extends Message
 {
     /**
-    * {@inheritdoc}
-    */
+     * {@inheritdoc}
+     */
     protected string $type = 'location';
 
     private float $longitude;
@@ -23,11 +23,11 @@ final class LocationMessage extends Message
     private string $address;
 
     /**
-    * {@inheritdoc}
-    */
+     * {@inheritdoc}
+     */
     public function __construct(string $to, float $longitude, float $latitude, string $name = '', string $address = '', ?string $reply_to = null)
     {
-        if ($address && !$name) {
+        if ($address && ! $name) {
             throw new InvalidMessage('Name is required.');
         }
 

@@ -40,8 +40,6 @@ abstract class Message
 
     /**
      * Return the WhatsApp ID or phone number for the person you want to send a message to.
-     *
-     * @return string
      */
     public function to(): string
     {
@@ -50,8 +48,6 @@ abstract class Message
 
     /**
      * Return the type of message object.
-     *
-     * @return string
      */
     public function type(): string
     {
@@ -60,8 +56,6 @@ abstract class Message
 
     /**
      * Return the messaging product.
-     *
-     * @return string
      */
     public function messagingProduct(): string
     {
@@ -70,8 +64,6 @@ abstract class Message
 
     /**
      * Return the recipient type.
-     *
-     * @return string
      */
     public function recipientType(): string
     {

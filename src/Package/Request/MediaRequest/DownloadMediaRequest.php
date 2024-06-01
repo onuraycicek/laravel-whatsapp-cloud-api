@@ -13,7 +13,6 @@ final class DownloadMediaRequest extends Request
 
     /**
      * Creates a new Media Request instance.
-     *
      */
     public function __construct(string $media_id, string $access_token, ?int $timeout = null)
     {
@@ -24,8 +23,6 @@ final class DownloadMediaRequest extends Request
 
     /**
      * Media Identifier (Id).
-     *
-     * @return string
      */
     public function mediaId(): string
     {
@@ -34,8 +31,6 @@ final class DownloadMediaRequest extends Request
 
     /**
      * WhatsApp node path.
-     *
-     * @return string
      */
     public function nodePath(): string
     {

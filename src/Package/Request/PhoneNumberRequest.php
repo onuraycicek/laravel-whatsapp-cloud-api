@@ -18,11 +18,8 @@ abstract class PhoneNumberRequest extends Request implements RequestWithBody
         parent::__construct($access_token, $timeout);
     }
 
-
     /**
      * Returns the Business ID.
-     *
-     * @return string
      */
     public function businessId(): string
     {
@@ -31,11 +28,9 @@ abstract class PhoneNumberRequest extends Request implements RequestWithBody
 
     /**
      * WhatsApp node path.
-     *
-     * @return string
      */
     public function nodePath(): string
     {
-        return $this->business_id . '/phone_numbers';
+        return $this->business_id.'/phone_numbers';
     }
 }

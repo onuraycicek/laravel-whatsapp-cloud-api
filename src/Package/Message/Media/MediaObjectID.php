@@ -5,7 +5,7 @@ namespace WCA\WCA\Package\Message\Media;
 final class MediaObjectID extends MediaID
 {
     /**
-    * {@inheritdoc}
-    */
+     * {@inheritdoc}
+     */
     protected string $type = 'id';
 }

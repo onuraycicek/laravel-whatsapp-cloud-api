@@ -57,7 +57,7 @@ final class StatusNotification extends Notification
 
     public function conversationId(): ?string
     {
-        if (!$this->conversation) {
+        if (! $this->conversation) {
             return null;
         }
 
@@ -66,7 +66,7 @@ final class StatusNotification extends Notification
 
     public function conversationType(): ?string
     {
-        if (!$this->conversation) {
+        if (! $this->conversation) {
             return null;
         }
 
@@ -75,7 +75,7 @@ final class StatusNotification extends Notification
 
     public function conversationExpiresAt(): ?\DateTimeImmutable
     {
-        if (!$this->conversation) {
+        if (! $this->conversation) {
             return null;
         }
 
@@ -84,7 +84,7 @@ final class StatusNotification extends Notification
 
     public function isBusinessInitiatedConversation(): ?bool
     {
-        if (!$this->conversation) {
+        if (! $this->conversation) {
             return null;
         }
 
@@ -93,7 +93,7 @@ final class StatusNotification extends Notification
 
     public function isCustomerInitiatedConversation(): ?bool
     {
-        if (!$this->conversation) {
+        if (! $this->conversation) {
             return null;
         }
 
@@ -102,7 +102,7 @@ final class StatusNotification extends Notification
 
     public function isReferralInitiatedConversation(): ?bool
     {
-        if (!$this->conversation) {
+        if (! $this->conversation) {
             return null;
         }
 
@@ -111,7 +111,7 @@ final class StatusNotification extends Notification
 
     public function pricingCategory(): ?string
     {
-        if (!$this->pricing) {
+        if (! $this->pricing) {
             return null;
         }
 
@@ -120,7 +120,7 @@ final class StatusNotification extends Notification
 
     public function pricingModel(): ?string
     {
-        if (!$this->pricing) {
+        if (! $this->pricing) {
             return null;
         }
 
@@ -129,7 +129,7 @@ final class StatusNotification extends Notification
 
     public function isBillable(): ?bool
     {
-        if (!$this->pricing) {
+        if (! $this->pricing) {
             return null;
         }
 
@@ -158,12 +158,12 @@ final class StatusNotification extends Notification
 
     public function hasErrors(): bool
     {
-        return null !== $this->error;
+        return $this->error !== null;
     }
 
     public function errorCode(): ?int
     {
-        if (!$this->error) {
+        if (! $this->error) {
             return null;
         }
 
@@ -172,7 +172,7 @@ final class StatusNotification extends Notification
 
     public function errorTitle(): ?string
     {
-        if (!$this->error) {
+        if (! $this->error) {
             return null;
         }
 

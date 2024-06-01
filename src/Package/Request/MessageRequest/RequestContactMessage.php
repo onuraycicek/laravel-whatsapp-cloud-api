@@ -7,8 +7,8 @@ use WCA\WCA\Package\Request\MessageRequest;
 final class RequestContactMessage extends MessageRequest
 {
     /**
-    * {@inheritdoc}
-    */
+     * {@inheritdoc}
+     */
     public function body(): array
     {
         $message_type = $this->message->type();
@@ -35,7 +35,7 @@ final class RequestContactMessage extends MessageRequest
                 'type' => $phone->type()->getValue(),
             ];
 
-            if (!empty($phone->waId())) {
+            if (! empty($phone->waId())) {
                 $phone_array['wa_id'] = $phone->waId();
             }
 

@@ -7,15 +7,15 @@ use WCA\WCA\Package\Message\Media\MediaID;
 final class ImageMessage extends Message
 {
     /**
-    * {@inheritdoc}
-    */
+     * {@inheritdoc}
+     */
     protected string $type = 'image';
 
     /**
-    * Document identifier: WhatsApp Media ID or any Internet public link document.
-    *
-    * You can get a WhatsApp Media ID uploading the document to the WhatsApp Cloud servers.
-    */
+     * Document identifier: WhatsApp Media ID or any Internet public link document.
+     *
+     * You can get a WhatsApp Media ID uploading the document to the WhatsApp Cloud servers.
+     */
     private MediaID $id;
 
     /**
@@ -24,8 +24,8 @@ final class ImageMessage extends Message
     private ?string $caption;
 
     /**
-    * {@inheritdoc}
-    */
+     * {@inheritdoc}
+     */
     public function __construct(string $to, MediaID $id, ?string $caption = '', ?string $reply_to = null)
     {
         $this->id = $id;

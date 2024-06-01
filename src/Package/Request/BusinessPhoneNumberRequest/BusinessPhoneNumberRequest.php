@@ -20,8 +20,6 @@ final class BusinessPhoneNumberRequest extends Request
 
     /**
      * Returns the Business ID.
-     *
-     * @return string
      */
     public function businessId(): string
     {
@@ -30,11 +28,9 @@ final class BusinessPhoneNumberRequest extends Request
 
     /**
      * WhatsApp node path.
-     *
-     * @return string
      */
     public function nodePath(): string
     {
-        return $this->business_id . '/phone_numbers';
+        return $this->business_id.'/phone_numbers';
     }
 }

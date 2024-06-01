@@ -35,10 +35,7 @@ class Response
     /**
      * Creates a new Response entity.
      *
-     * @param Request $request
-     * @param string     $body
-     * @param int|null        $http_status_code
-     * @param array|null      $headers
+     * @param  array|null  $headers
      */
     public function __construct(Request $request, string $body, ?int $http_status_code = null, array $headers = [])
     {
@@ -72,8 +69,6 @@ class Response
 
     /**
      * Return the access token that was used for this response.
-     *
-     * @return string
      */
     public function accessToken(): string
     {
@@ -82,8 +77,6 @@ class Response
 
     /**
      * Return the HTTP status code for this response.
-     *
-     * @return int
      */
     public function httpStatusCode(): int
     {
@@ -92,8 +85,6 @@ class Response
 
     /**
      * Return the HTTP headers for this response.
-     *
-     * @return array
      */
     public function headers(): array
     {
@@ -102,8 +93,6 @@ class Response
 
     /**
      * Return the raw body response.
-     *
-     * @return string
      */
     public function body(): string
     {
@@ -112,8 +101,6 @@ class Response
 
     /**
      * Return the decoded body response.
-     *
-     * @return array
      */
     public function decodedBody(): array
     {
@@ -122,8 +109,6 @@ class Response
 
     /**
      * Get the version of Graph that returned this response.
-     *
-     * @return string|null
      */
     public function graphVersion(): ?string
     {
@@ -132,8 +117,6 @@ class Response
 
     /**
      * Returns true if Graph returned an error message.
-     *
-     * @return bool
      */
     public function isError(): bool
     {

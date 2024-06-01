@@ -24,8 +24,7 @@ abstract class Request
     /**
      * Creates a new Request entity.
      *
-     * @param Message               $message
-     * @param string                $access_token
+     * @param  Message  $message
      */
     public function __construct(string $access_token, ?int $timeout = null)
     {
@@ -35,8 +34,6 @@ abstract class Request
 
     /**
      * Return the headers for this request.
-     *
-     * @return array
      */
     public function headers(): array
     {
@@ -47,8 +44,6 @@ abstract class Request
 
     /**
      * Return the access token for this request.
-     *
-     * @return string
      */
     public function accessToken(): string
     {
@@ -57,8 +52,6 @@ abstract class Request
 
     /**
      * Return the timeout for this request.
-     *
-     * @return int
      */
     public function timeout(): int
     {

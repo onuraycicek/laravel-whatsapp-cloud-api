@@ -13,13 +13,12 @@ final class UploadMediaRequest extends Request
     private string $file_path;
 
     /**
-    * @var string WhatsApp Number Id from messages will sent.
-    */
+     * @var string WhatsApp Number Id from messages will sent.
+     */
     private string $phone_number_id;
 
     /**
      * Creates a new Media Request instance.
-     *
      */
     public function __construct(string $file_path, string $phone_number_id, string $access_token, ?int $timeout = null)
     {
@@ -31,8 +30,6 @@ final class UploadMediaRequest extends Request
 
     /**
      * Returns the raw form of the request.
-     *
-     * @return array
      */
     public function form(): array
     {
@@ -54,11 +51,9 @@ final class UploadMediaRequest extends Request
 
     /**
      * WhatsApp node path.
-     *
-     * @return string
      */
     public function nodePath(): string
     {
-        return $this->phone_number_id . '/media';
+        return $this->phone_number_id.'/media';
     }
 }

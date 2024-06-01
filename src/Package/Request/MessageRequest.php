@@ -27,8 +27,6 @@ abstract class MessageRequest extends Request implements RequestWithBody
 
     /**
      * Return WhatsApp Number Id for this request.
-     *
-     * @return string
      */
     public function fromPhoneNumberId(): string
     {
@@ -37,11 +35,9 @@ abstract class MessageRequest extends Request implements RequestWithBody
 
     /**
      * WhatsApp node path.
-     *
-     * @return string
      */
     public function nodePath(): string
     {
-        return $this->from_phone_number_id . '/messages';
+        return $this->from_phone_number_id.'/messages';
     }
 }
