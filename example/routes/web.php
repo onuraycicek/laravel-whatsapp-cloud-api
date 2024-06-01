@@ -17,17 +17,19 @@ Route::get('/business-profile', function (Request $request) {
             'business_id' => env('WCA_BUSINESS_ID'),
         ]);
 
-        $response = $wca->businessProfile("about,address,description,email,profile_picture_url,websites,vertical");
-        $data =  $response->decodedBody()["data"][0];
+        $response = $wca->businessProfile('about,address,description,email,profile_picture_url,websites,vertical');
+        $data = $response->decodedBody()['data'][0];
     } catch (\Throwable $th) {
         if (json_decode($th->getMessage())) {
             return json_decode($th->getMessage())->error->message;
         }
+
         return $th->getMessage();
     }
+
     return view('sections.business_profile', [
         'fromPhoneNumberId' => $request->from_phone_number_id ?? env('WCA_FROM_PHONE_NUMBER_ID'),
-        'businessProfile' => $data
+        'businessProfile' => $data,
     ]);
 })->name('business-profile');
 
@@ -38,22 +40,22 @@ Route::post('/send-message', function (Request $request) {
             'business_id' => env('WCA_BUSINESS_ID'),
         ]);
 
-        if ($request->has("file")) {
+        if ($request->has('file')) {
             $uploadedFiles = [];
             //upload
             foreach ($request->file as $file) {
                 // save file temporarily random name
                 $randomName = Str::random(10);
-                $tempName = $randomName . '.' . $file->getClientOriginalExtension();
+                $tempName = $randomName.'.'.$file->getClientOriginalExtension();
                 $file->storeAs('temp', $tempName);
                 $response = $wca->uploadMedia(
-                    storage_path('app/temp/' . $tempName)
+                    storage_path('app/temp/'.$tempName)
                 );
-                $id = $response->decodedBody()["id"];
+                $id = $response->decodedBody()['id'];
                 $uploadedFiles[] = [
-                    "id" => new MediaObjectID($id),
-                    "name" => $file->getClientOriginalName(),
-                    "temp_name" => $tempName,
+                    'id' => new MediaObjectID($id),
+                    'name' => $file->getClientOriginalName(),
+                    'temp_name' => $tempName,
                 ];
             }
 
@@ -61,23 +63,22 @@ Route::post('/send-message', function (Request $request) {
             foreach ($uploadedFiles as $key => $file) {
                 $caption = $key == 0 ? $request->message : null; // send caption only first file
                 $response = $wca->sendDocument(
-                    to: $request->to_phone_number ?? env("WCA_TARGET_PHONE_NUMBER"),
-                    document_id: $file["id"],
-                    name: $file["name"],
+                    to: $request->to_phone_number ?? env('WCA_TARGET_PHONE_NUMBER'),
+                    document_id: $file['id'],
+                    name: $file['name'],
                     caption: $caption
                 );
             }
 
             // remove temporary files
             foreach ($uploadedFiles as $file) {
-                unlink(storage_path('app/temp/' . $file["temp_name"]));
+                unlink(storage_path('app/temp/'.$file['temp_name']));
             }
-
 
             return $response->body();
         } else {
             $response = $wca->sendTextMessage(
-                to: $request->to_phone_number ?? env("WCA_TARGET_PHONE_NUMBER"),
+                to: $request->to_phone_number ?? env('WCA_TARGET_PHONE_NUMBER'),
                 text: $request->message
             );
         }
@@ -87,6 +88,7 @@ Route::post('/send-message', function (Request $request) {
         if (method_exists($th, 'getMessage') && json_decode($th->getMessage())) {
             return json_decode($th->getMessage())->error->message;
         }
+
         return $th;
     }
 })->name('send-message');
@@ -100,15 +102,16 @@ Route::get('/phone-numbers', function () {
         ]);
 
         $response = $wca->getBusinessPhoneNumbers();
-        $data =  $response->decodedBody()["data"];
+        $data = $response->decodedBody()['data'];
     } catch (\Throwable $th) {
         if (json_decode($th->getMessage())) {
             return json_decode($th->getMessage())->error->message;
         }
+
         return $th->getMessage();
     }
 
     return view('sections.phone_numbers', [
-        'phoneNumbers' => $data
+        'phoneNumbers' => $data,
     ]);
 })->name('phone-numbers');

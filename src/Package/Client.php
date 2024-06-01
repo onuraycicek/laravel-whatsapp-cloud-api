@@ -24,9 +24,6 @@ class Client
 
     /**
      * Creates a new HTTP Client.
-     *
-     * @param string                    $graph_version
-     * @param ClientHandler|null        $handler
      */
     public function __construct(string $graph_version, ?ClientHandler $handler = null)
     {
@@ -176,12 +173,12 @@ class Client
 
         return $return_response;
     }
-    
+
     /**
      * Get the Whatsapp phone numbers.
-     * 
+     *
      * @return Response Raw response from the server.
-     * 
+     *
      * @throws WCA\WCA\Package\Response\ResponseException
      */
     public function getBusinessPhoneNumbers(Request\BusinessPhoneNumberRequest\BusinessPhoneNumberRequest $request): Response
@@ -208,11 +205,11 @@ class Client
 
     private function buildBaseUri(): string
     {
-        return self::BASE_GRAPH_URL . '/' . $this->graph_version;
+        return self::BASE_GRAPH_URL.'/'.$this->graph_version;
     }
 
     private function buildRequestUri(string $node_path): string
     {
-        return $this->buildBaseUri() . '/' . $node_path;
+        return $this->buildBaseUri().'/'.$node_path;
     }
 }

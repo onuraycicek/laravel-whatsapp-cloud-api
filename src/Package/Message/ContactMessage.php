@@ -9,8 +9,8 @@ use WCA\WCA\Package\Message\Contact\Phones;
 final class ContactMessage extends Message
 {
     /**
-    * {@inheritdoc}
-    */
+     * {@inheritdoc}
+     */
     protected string $type = 'contacts';
 
     private ContactName $name;
@@ -18,8 +18,8 @@ final class ContactMessage extends Message
     private Phones $phones;
 
     /**
-    * {@inheritdoc}
-    */
+     * {@inheritdoc}
+     */
     public function __construct(string $to, ContactName $name, ?string $reply_to, Phone ...$phones)
     {
         $this->name = $name;

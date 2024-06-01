@@ -7,8 +7,8 @@ use WCA\WCA\Package\Message\CtaUrl\Header;
 final class CtaUrlMessage extends Message
 {
     /**
-    * {@inheritdoc}
-    */
+     * {@inheritdoc}
+     */
     protected string $type = 'cta_url';
 
     private string $displayText;
@@ -22,8 +22,8 @@ final class CtaUrlMessage extends Message
     private ?string $footer = null;
 
     /**
-    * {@inheritdoc}
-    */
+     * {@inheritdoc}
+     */
     public function __construct(
         string $to,
         string $displayText,

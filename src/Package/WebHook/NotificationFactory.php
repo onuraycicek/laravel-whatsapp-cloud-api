@@ -5,6 +5,7 @@ namespace WCA\WCA\Package\WebHook;
 final class NotificationFactory
 {
     private Notification\MessageNotificationFactory $message_notification_factory;
+
     private Notification\StatusNotificationFactory $status_notification_factory;
 
     public function __construct()
@@ -25,14 +26,14 @@ final class NotificationFactory
      */
     public function buildAllFromPayload(array $payload): array
     {
-        if (!is_array($payload['entry'] ?? null)) {
+        if (! is_array($payload['entry'] ?? null)) {
             return [];
         }
 
         $notifications = [];
 
         foreach ($payload['entry'] as $entry) {
-            if (!is_array($entry['changes'])) {
+            if (! is_array($entry['changes'])) {
                 continue;
             }
 

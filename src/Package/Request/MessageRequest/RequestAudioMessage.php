@@ -7,8 +7,8 @@ use WCA\WCA\Package\Request\MessageRequest;
 final class RequestAudioMessage extends MessageRequest
 {
     /**
-    * {@inheritdoc}
-    */
+     * {@inheritdoc}
+     */
     public function body(): array
     {
         $body = [

@@ -7,7 +7,9 @@ use WCA\WCA\Package\WebHook\Notification\Support\Products;
 final class Order extends MessageNotification
 {
     private string $catalog_id;
+
     private string $message;
+
     private Products $products;
 
     public function __construct(

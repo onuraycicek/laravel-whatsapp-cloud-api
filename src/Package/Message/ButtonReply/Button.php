@@ -5,6 +5,7 @@ namespace WCA\WCA\Package\Message\ButtonReply;
 class Button
 {
     private $id;
+
     private $title;
 
     public function __construct(string $id, string $title)

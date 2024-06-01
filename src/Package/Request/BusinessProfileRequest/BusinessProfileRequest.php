@@ -26,8 +26,6 @@ final class BusinessProfileRequest extends Request
 
     /**
      * Return WhatsApp Number Id for this request.
-     *
-     * @return string
      */
     public function fromPhoneNumberId(): string
     {
@@ -36,11 +34,9 @@ final class BusinessProfileRequest extends Request
 
     /**
      * WhatsApp node path.
-     *
-     * @return string
      */
     public function nodePath(): string
     {
-        return $this->from_phone_number_id . '/whatsapp_business_profile?fields=' . $this->fields;
+        return $this->from_phone_number_id.'/whatsapp_business_profile?fields='.$this->fields;
     }
 }

@@ -17,10 +17,10 @@ class ButtonAction
 
         foreach ($this->buttons as $button) {
             $buttonActions[] = [
-                "type" => "reply",
-                "reply" => [
-                    "id" => $button->id(),
-                    "title" => $button->title(),
+                'type' => 'reply',
+                'reply' => [
+                    'id' => $button->id(),
+                    'title' => $button->title(),
                 ],
             ];
         }

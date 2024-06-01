@@ -22,7 +22,6 @@ final class GuzzleClientHandler implements ClientHandler
 
     /**
      * {@inheritDoc}
-     *
      */
     public function postJsonData(string $url, array $body, array $headers, int $timeout): RawResponse
     {
@@ -33,7 +32,6 @@ final class GuzzleClientHandler implements ClientHandler
 
     /**
      * {@inheritDoc}
-     *
      */
     public function postFormData(string $url, array $form, array $headers, int $timeout): RawResponse
     {
@@ -44,7 +42,6 @@ final class GuzzleClientHandler implements ClientHandler
 
     /**
      * {@inheritDoc}
-     *
      */
     public function get(string $url, array $headers, int $timeout): RawResponse
     {

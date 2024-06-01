@@ -7,11 +7,10 @@ interface ClientHandler
     /**
      * Sends a JSON POST request to the server and returns the raw response.
      *
-     * @param string $url     The endpoint to send the request to.
-     * @param array  $body    The body of the request.
-     * @param array  $headers The request headers.
-     * @param int    $timeout The timeout in seconds for the request.
-     *
+     * @param  string  $url  The endpoint to send the request to.
+     * @param  array  $body  The body of the request.
+     * @param  array  $headers  The request headers.
+     * @param  int  $timeout  The timeout in seconds for the request.
      * @return RawResponse Response from the server.
      *
      * @throws WCA\WCA\Package\Response\ResponseException
@@ -21,11 +20,10 @@ interface ClientHandler
     /**
      * Sends a form POST request to the server and returns the raw response.
      *
-     * @param string $url     The endpoint to send the request to.
-     * @param array  $form    The form data of the request.
-     * @param array  $headers The request headers.
-     * @param int    $timeout The timeout in seconds for the request.
-     *
+     * @param  string  $url  The endpoint to send the request to.
+     * @param  array  $form  The form data of the request.
+     * @param  array  $headers  The request headers.
+     * @param  int  $timeout  The timeout in seconds for the request.
      * @return RawResponse Response from the server.
      *
      * @throws WCA\WCA\Package\Response\ResponseException
@@ -35,10 +33,9 @@ interface ClientHandler
     /**
      * Sends a GET request to the server and returns the raw response.
      *
-     * @param string $url     The endpoint to send the request to.
-     * @param array  $headers The request headers.
-     * @param int    $timeout The timeout in seconds for the request.
-     *
+     * @param  string  $url  The endpoint to send the request to.
+     * @param  array  $headers  The request headers.
+     * @param  int  $timeout  The timeout in seconds for the request.
      * @return RawResponse Response from the server.
      *
      * @throws WCA\WCA\Package\Response\ResponseException

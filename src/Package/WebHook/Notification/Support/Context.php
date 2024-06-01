@@ -11,9 +11,9 @@ final class Context
     private ?ReferredProduct $referred_product;
 
     public function __construct(
-        string $replying_to_message_id = null,
+        ?string $replying_to_message_id = null,
         bool $forwarded = false,
-        ReferredProduct $referred_product = null
+        ?ReferredProduct $referred_product = null
     ) {
         $this->replying_to_message_id = $replying_to_message_id;
         $this->forwarded = $forwarded;
@@ -32,12 +32,12 @@ final class Context
 
     public function hasReferredProduct(): bool
     {
-        return null !== $this->referred_product;
+        return $this->referred_product !== null;
     }
 
     public function catalogId(): ?string
     {
-        if (!$this->hasReferredProduct()) {
+        if (! $this->hasReferredProduct()) {
             return null;
         }
 
@@ -46,7 +46,7 @@ final class Context
 
     public function productRetailerId(): ?string
     {
-        if (!$this->hasReferredProduct()) {
+        if (! $this->hasReferredProduct()) {
             return null;
         }
 

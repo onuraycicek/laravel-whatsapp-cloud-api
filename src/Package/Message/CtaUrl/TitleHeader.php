@@ -2,8 +2,6 @@
 
 namespace WCA\WCA\Package\Message\CtaUrl;
 
-use WCA\WCA\Package\Message\CtaUrl\Header;
-
 final class TitleHeader extends Header
 {
     protected string $title;

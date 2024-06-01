@@ -7,8 +7,8 @@ use WCA\WCA\Package\Message\OptionsList\Action;
 final class OptionsListMessage extends Message
 {
     /**
-    * {@inheritdoc}
-    */
+     * {@inheritdoc}
+     */
     protected string $type = 'list';
 
     private string $header;
@@ -20,8 +20,8 @@ final class OptionsListMessage extends Message
     private Action $action;
 
     /**
-    * {@inheritdoc}
-    */
+     * {@inheritdoc}
+     */
     public function __construct(string $to, string $header, string $body, string $footer, Action $action, ?string $reply_to)
     {
         $this->header = $header;

@@ -26,14 +26,12 @@ final class UpdateBusinessProfileRequest extends Request
 
     /**
      * Returns the raw form of the request.
-     *
-     * @return array
      */
     public function body(): array
     {
         return array_merge(
             [
-                'messaging_product' => 'whatsapp'
+                'messaging_product' => 'whatsapp',
             ],
             $this->information
         );
@@ -41,11 +39,9 @@ final class UpdateBusinessProfileRequest extends Request
 
     /**
      * WhatsApp node path.
-     *
-     * @return string
      */
     public function nodePath(): string
     {
-        return $this->from_phone_number_id . '/whatsapp_business_profile';
+        return $this->from_phone_number_id.'/whatsapp_business_profile';
     }
 }

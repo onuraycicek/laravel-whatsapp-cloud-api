@@ -19,7 +19,7 @@ abstract class MessageNotification extends Notification
 
     public function replyingToMessageId(): ?string
     {
-        if (!$this->context) {
+        if (! $this->context) {
             return null;
         }
 
@@ -28,7 +28,7 @@ abstract class MessageNotification extends Notification
 
     public function isForwarded(): bool
     {
-        if (!$this->context) {
+        if (! $this->context) {
             return false;
         }
 

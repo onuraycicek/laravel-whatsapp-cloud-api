@@ -7,20 +7,20 @@ use WCA\WCA\Package\Message\Media\MediaID;
 final class StickerMessage extends Message
 {
     /**
-    * {@inheritdoc}
-    */
+     * {@inheritdoc}
+     */
     protected string $type = 'sticker';
 
     /**
-    * Document identifier: WhatsApp Media ID or any Internet public link document.
-    *
-    * You can get a WhatsApp Media ID uploading the document to the WhatsApp Cloud servers.
-    */
+     * Document identifier: WhatsApp Media ID or any Internet public link document.
+     *
+     * You can get a WhatsApp Media ID uploading the document to the WhatsApp Cloud servers.
+     */
     private MediaID $id;
 
     /**
-    * {@inheritdoc}
-    */
+     * {@inheritdoc}
+     */
     public function __construct(string $to, MediaID $id, ?string $reply_to)
     {
         $this->id = $id;
