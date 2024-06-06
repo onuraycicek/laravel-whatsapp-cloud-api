@@ -1,6 +1,6 @@
 {
     "name": "onuraycicek/laravel-whatsapp-cloud-api",
-    "version": "0.0.1",
+    "version": "0.0.2",
     "description": "This is my package laravel-whatsapp-cloud-api",
     "keywords": [
         "Onuraycicek",
@@ -17,9 +17,8 @@
         }
     ],
     "require": {
-        "php": "^8.2",
-        "spatie/laravel-package-tools": "^1.16",
-        "illuminate/contracts": "^10.0||^11.0"
+        "php": "^8.0|^8.1|^8.2",
+        "spatie/laravel-package-tools": "^1.16"
     },
     "require-dev": {
         "laravel/pint": "^1.14",
