@@ -175,9 +175,10 @@ class WCA
 
     /**
      * Get Templates
+     *
      * @throws Response\ResponseException
      */
-    public function getBusinessTemplateMessages(string|null $after = ''): Response
+    public function getBusinessTemplateMessages(?string $after = ''): Response
     {
         $request = new Package\Request\BusinessTemplateRequest\BusinessTemplateRequest(
             $this->app->accessToken(),
@@ -188,7 +189,6 @@ class WCA
 
         return $this->client->getTemplates($request);
     }
-
 
     /**
      * Returns the Facebook Whatsapp Access Token.
