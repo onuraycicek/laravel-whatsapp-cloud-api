@@ -46,10 +46,10 @@ Route::post('/send-message', function (Request $request) {
             foreach ($request->file as $file) {
                 // save file temporarily random name
                 $randomName = Str::random(10);
-                $tempName = $randomName.'.'.$file->getClientOriginalExtension();
+                $tempName = $randomName . '.' . $file->getClientOriginalExtension();
                 $file->storeAs('temp', $tempName);
                 $response = $wca->uploadMedia(
-                    storage_path('app/temp/'.$tempName)
+                    storage_path('app/temp/' . $tempName)
                 );
                 $id = $response->decodedBody()['id'];
                 $uploadedFiles[] = [
@@ -72,7 +72,7 @@ Route::post('/send-message', function (Request $request) {
 
             // remove temporary files
             foreach ($uploadedFiles as $file) {
-                unlink(storage_path('app/temp/'.$file['temp_name']));
+                unlink(storage_path('app/temp/' . $file['temp_name']));
             }
 
             return $response->body();
@@ -115,3 +115,35 @@ Route::get('/phone-numbers', function () {
         'phoneNumbers' => $data,
     ]);
 })->name('phone-numbers');
+
+Route::get('/template-messages', function () {
+
+    try {
+        $wca = new WCA\WCA\WCA([
+            'from_phone_number_id' => env('WCA_FROM_PHONE_NUMBER_ID'),
+            'business_id' => env('WCA_BUSINESS_ID'),
+        ]);
+
+        $allTemplates = [];
+        $after = null;
+        do {
+            $response = $wca->getBusinessTemplateMessages($after);
+            $data = $response->decodedBody();
+            if (!isset($data['data']) || empty($data['data'])) {
+                break;
+            }
+            $allTemplates = array_merge($allTemplates, $data['data']);
+            $after = $data['paging']['cursors']['after'] ?? null;
+        } while ($after !== null);
+        $data = $response->decodedBody();
+    } catch (\Throwable $th) {
+        if (json_decode($th->getMessage())) {
+            return json_decode($th->getMessage())->error->message;
+        }
+
+        return $th->getMessage();
+    }
+    return view('sections.template_messages', [
+        'templateMessages' => $allTemplates,
+    ]);
+})->name('template-messages');

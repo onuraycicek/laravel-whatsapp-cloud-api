@@ -44,6 +44,9 @@
                 <x-table url="{{ route('business-profile') }}" header="Business Profile" class="h-100" />
             </div>
 
+            <div class="col-12">
+                <x-table url="{{ route('template-messages') }}" header="Template Messages" />
+            </div>
 
         </div>
 

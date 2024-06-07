@@ -93,6 +93,30 @@ class Client
     }
 
     /**
+     * Get the Whatsapp message templates.
+     *
+     * @return Response Raw response from the server.
+     *
+     * @throws WCA\WCA\Package\Response\ResponseException
+     */
+    public function getTemplates(Request\BusinessTemplateRequest\BusinessTemplateRequest $request): Response
+    {
+        $raw_response = $this->handler->get(
+            $this->buildRequestUri($request->nodePath()),
+            $request->headers(),
+            $request->timeout()
+        );
+
+        $return_response = Response::fromClientResponse($request, $raw_response);
+
+        if ($return_response->isError()) {
+            $return_response->throwException();
+        }
+
+        return $return_response;
+    }
+
+    /**
      * Download a media file from Facebook servers.
      *
      * @return Response Raw response from the server.
