@@ -87,7 +87,7 @@
                 <tbody>
                     @foreach ($templateMessages as $templateMessage)
                         <tr>
-                            <td>{{ $templateMessage['name'] }}</td>
+                            <td class="template-message-name">{{ $templateMessage['name'] }}</td>
                             <td>{{ $templateMessage['language'] }}</td>
                             <td>{{ $templateMessage['status'] }}</td>
                             <td>{{ $templateMessage['category'] }}</td>

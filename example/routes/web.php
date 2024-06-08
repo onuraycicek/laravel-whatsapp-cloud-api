@@ -147,3 +147,26 @@ Route::get('/template-messages', function () {
         'templateMessages' => $allTemplates,
     ]);
 })->name('template-messages');
+
+
+Route::post('/send-template-message', function (Request $request) {
+    try {
+        $wca = new WCA\WCA\WCA([
+            'from_phone_number_id' => $request->from_phone_number_id ?? env('WCA_FROM_PHONE_NUMBER_ID'),
+            'business_id' => env('WCA_BUSINESS_ID'),
+        ]);
+
+        $response = $wca->sendTemplate(
+            to: $request->to_phone_number ?? env('WCA_TARGET_PHONE_NUMBER'),
+            template_name: $request->template_name
+        );
+
+        return $response->body();
+    } catch (\Throwable $th) {
+        if (json_decode($th->getMessage())) {
+            return json_decode($th->getMessage())->error->message;
+        }
+
+        return $th->getMessage();
+    }
+})->name('send-template-message');

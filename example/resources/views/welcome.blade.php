@@ -39,8 +39,19 @@
                 </div>
             </div>
 
-
             <div class="col-6">
+                <div class="card">
+                    <div class="card-header">
+                        Send Template Message
+                    </div>
+                    <div class="card-body">
+                        @include('sections.send_template_message')
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="col-12">
                 <x-table url="{{ route('business-profile') }}" header="Business Profile" class="h-100" />
             </div>
 
