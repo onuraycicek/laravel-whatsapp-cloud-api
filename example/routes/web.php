@@ -149,7 +149,6 @@ Route::get('/template-messages', function () {
     ]);
 })->name('template-messages');
 
-
 Route::post('/send-template-message', function (Request $request) {
     try {
         $wca = new WCA\WCA\WCA([
