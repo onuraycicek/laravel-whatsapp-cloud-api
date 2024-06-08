@@ -11,13 +11,12 @@ final class BusinessTemplateRequest extends Request
      */
     private string $after = '';
 
-    
     /**
      * @var string WhatsApp Number Id from messages will sent.
      */
     private string $business_id;
 
-    public function __construct(string $access_token, string $business_id, string|null $after, ?int $timeout = null)
+    public function __construct(string $access_token, string $business_id, ?string $after, ?int $timeout = null)
     {
         $this->business_id = $business_id;
         if ($after) {
@@ -40,6 +39,6 @@ final class BusinessTemplateRequest extends Request
      */
     public function nodePath(): string
     {
-        return $this->business_id.'/message_templates' . ($this->after ? '?after='.$this->after : '');
+        return $this->business_id.'/message_templates'.($this->after ? '?after='.$this->after : '');
     }
 }
