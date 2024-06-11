@@ -182,10 +182,11 @@ Route::post('/download-media', function (Request $request) {
             media_id: $request->media_id
         );
         $file = $response->body();
-        
+
         $fileName = 'media_'.$request->media_id.'.jpg'; // whatsapp webhook returns media type
         $filePath = storage_path('app/public/'.$fileName);
         file_put_contents($filePath, $file);
+
         return asset('storage/'.$fileName);
 
     } catch (\Throwable $th) {

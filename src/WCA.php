@@ -219,9 +219,7 @@ class WCA
     /**
      * Download a media file (image, audio, video...) from Facebook servers.
      *
-     * @param  string        $media_id Id of the media uploaded with the `uploadMedia` method
-     *
-     * @return Response
+     * @param  string  $media_id  Id of the media uploaded with the `uploadMedia` method
      *
      * @throws Response\ResponseException
      */
@@ -235,7 +233,6 @@ class WCA
 
         return $this->client->downloadMedia($request);
     }
-
 
     /**
      * Returns the Facebook Whatsapp Access Token.
