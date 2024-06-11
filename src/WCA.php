@@ -78,13 +78,12 @@ class WCA
     /**
      * Sends a message template.
      *
-     * @param  string         $to              WhatsApp ID or phone number for the person you want to send a message to.
-     * @param  string         $template_name   Name of the template to send.
-     * @param  string         $language        Language code
-     * @param  Component|null $component       Component parameters of a template
+     * @param  string  $to  WhatsApp ID or phone number for the person you want to send a message to.
+     * @param  string  $template_name  Name of the template to send.
+     * @param  string  $language  Language code
+     * @param  Component|null  $component  Component parameters of a template
      *
      * @link https://developers.facebook.com/docs/whatsapp/api/messages/message-templates#supported-languages See language codes supported.
-     * @return Response
      *
      * @throws Response\ResponseException
      */
@@ -100,7 +99,6 @@ class WCA
 
         return $this->client->sendMessage($request);
     }
-
 
     /**
      * Sends a document uploaded to the WhatsApp Cloud servers by it Media ID or you also
