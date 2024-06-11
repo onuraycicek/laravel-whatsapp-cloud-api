@@ -58,7 +58,18 @@
             <div class="col-12">
                 <x-table url="{{ route('template-messages') }}" header="Template Messages" />
             </div>
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header">
+                       Download Media
+                    </div>
+                    <div class="card-body">
+                        @include('sections.download_media')
+                    </div>
+                </div>
+            </div>
 
+            
         </div>
 
     </div>

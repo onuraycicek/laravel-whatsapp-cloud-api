@@ -171,3 +171,29 @@ Route::post('/send-template-message', function (Request $request) {
         return $th->getMessage();
     }
 })->name('send-template-message');
+
+Route::post('/download-media', function (Request $request) {
+    try {
+        $wca = new WCA\WCA\WCA([
+            'from_phone_number_id' => $request->from_phone_number_id ?? env('WCA_FROM_PHONE_NUMBER_ID'),
+            'business_id' => env('WCA_BUSINESS_ID'),
+        ]);
+
+        $response = $wca->downloadMedia(
+            media_id: $request->media_id
+        );
+        $file = $response->body();
+        
+        $fileName = 'media_'.$request->media_id.'.jpg'; // whatsapp webhook returns media type
+        $filePath = storage_path('app/public/'.$fileName);
+        file_put_contents($filePath, $file);
+        return asset('storage/'.$fileName);
+
+    } catch (\Throwable $th) {
+        if (json_decode($th->getMessage())) {
+            return json_decode($th->getMessage())->error->message;
+        }
+
+        return $th->getMessage();
+    }
+})->name('download-media');
