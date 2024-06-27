@@ -122,15 +122,12 @@ class WCA
         return $this->client->sendMessage($request);
     }
 
-
-
     /**
      * Sends an audio uploaded to the WhatsApp Cloud servers by it Media ID or you also
      * can put any public URL of some audio uploaded on Internet.
      *
-     * @param  string  $to         WhatsApp ID or phone number for the person you want to send a message to.
-     * @param  MediaId $audio_id   WhatsApp Media ID or any Internet public audio link.
-     * @return Response
+     * @param  string  $to  WhatsApp ID or phone number for the person you want to send a message to.
+     * @param  MediaId  $audio_id  WhatsApp Media ID or any Internet public audio link.
      *
      * @throws Response\ResponseException
      */
@@ -151,10 +148,9 @@ class WCA
      * Sends an image uploaded to the WhatsApp Cloud servers by it Media ID or you also
      * can put any public URL of some image uploaded on Internet.
      *
-     * @param  string   $to          WhatsApp ID or phone number for the person you want to send a message to.
-     * @param  string   $caption     Description of the specified image file.
-     * @param  MediaId  $image_id    WhatsApp Media ID or any Internet public image link.
-     * @return Response
+     * @param  string  $to  WhatsApp ID or phone number for the person you want to send a message to.
+     * @param  string  $caption  Description of the specified image file.
+     * @param  MediaId  $image_id  WhatsApp Media ID or any Internet public image link.
      *
      * @throws Response\ResponseException
      */
@@ -175,9 +171,8 @@ class WCA
      * Sends a video uploaded to the WhatsApp Cloud servers by it Media ID or you also
      * can put any public URL of some video uploaded on Internet.
      *
-     * @param  string   $to       WhatsApp ID or phone number for the person you want to send a message to.
-     * @param  MediaId  $video_id WhatsApp Media ID or any Internet public video link.
-     * @return Response
+     * @param  string  $to  WhatsApp ID or phone number for the person you want to send a message to.
+     * @param  MediaId  $video_id  WhatsApp Media ID or any Internet public video link.
      *
      * @throws Response\ResponseException
      */
@@ -193,8 +188,6 @@ class WCA
 
         return $this->client->sendMessage($request);
     }
-
-
 
     /**
      * Sends a Whatsapp text message.
