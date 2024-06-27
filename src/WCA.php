@@ -122,6 +122,80 @@ class WCA
         return $this->client->sendMessage($request);
     }
 
+
+
+    /**
+     * Sends an audio uploaded to the WhatsApp Cloud servers by it Media ID or you also
+     * can put any public URL of some audio uploaded on Internet.
+     *
+     * @param  string  $to         WhatsApp ID or phone number for the person you want to send a message to.
+     * @param  MediaId $audio_id   WhatsApp Media ID or any Internet public audio link.
+     * @return Response
+     *
+     * @throws Response\ResponseException
+     */
+    public function sendAudio(string $to, MediaID $audio_id): Response
+    {
+        $message = new Package\Message\AudioMessage($to, $audio_id, $this->reply_to);
+        $request = new Package\Request\MessageRequest\RequestAudioMessage(
+            $message,
+            $this->app->accessToken(),
+            $this->app->fromPhoneNumberId(),
+            $this->timeout
+        );
+
+        return $this->client->sendMessage($request);
+    }
+
+    /**
+     * Sends an image uploaded to the WhatsApp Cloud servers by it Media ID or you also
+     * can put any public URL of some image uploaded on Internet.
+     *
+     * @param  string   $to          WhatsApp ID or phone number for the person you want to send a message to.
+     * @param  string   $caption     Description of the specified image file.
+     * @param  MediaId  $image_id    WhatsApp Media ID or any Internet public image link.
+     * @return Response
+     *
+     * @throws Response\ResponseException
+     */
+    public function sendImage(string $to, MediaID $image_id, ?string $caption = ''): Response
+    {
+        $message = new Package\Message\ImageMessage($to, $image_id, $caption, $this->reply_to);
+        $request = new Package\Request\MessageRequest\RequestImageMessage(
+            $message,
+            $this->app->accessToken(),
+            $this->app->fromPhoneNumberId(),
+            $this->timeout
+        );
+
+        return $this->client->sendMessage($request);
+    }
+
+    /**
+     * Sends a video uploaded to the WhatsApp Cloud servers by it Media ID or you also
+     * can put any public URL of some video uploaded on Internet.
+     *
+     * @param  string   $to       WhatsApp ID or phone number for the person you want to send a message to.
+     * @param  MediaId  $video_id WhatsApp Media ID or any Internet public video link.
+     * @return Response
+     *
+     * @throws Response\ResponseException
+     */
+    public function sendVideo(string $to, MediaID $video_id, string $caption = ''): Response
+    {
+        $message = new Package\Message\VideoMessage($to, $video_id, $caption, $this->reply_to);
+        $request = new Package\Request\MessageRequest\RequestVideoMessage(
+            $message,
+            $this->app->accessToken(),
+            $this->app->fromPhoneNumberId(),
+            $this->timeout
+        );
+
+        return $this->client->sendMessage($request);
+    }
+
+
+
     /**
      * Sends a Whatsapp text message.
      *
